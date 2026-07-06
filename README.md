@@ -1,9 +1,17 @@
-# Mini-LLaVA-from-scratch
+# Language-Instructed Detection Assistant
 
 Оригинальные статьи:
 - [LLaVA: Visual Instruction Tuning](https://arxiv.org/pdf/2304.08485)
 - [DETR: End-to-End Object Detection with Transformers](https://arxiv.org/pdf/2005.12872)
 - [LISA: Reasoning Segmentation via Large Language Model](https://arxiv.org/pdf/2308.00692)
+
+| Статья | Что взял оттуда 
+|--------|-----------------|
+| [LLaVA: Visual Instruction Tuning](https://arxiv.org/pdf/2304.08485) (Liu et al., 2023) | CLIP + LLM + обучаемый MLP-проектор, `<img>` токен, instruction tuning на caption-данных |
+| [DETR: End-to-End Object Detection with Transformers](https://arxiv.org/pdf/2005.12872) (Carion et al., 2020) | L1 + GIoU loss для bbox, идея «предсказываем box напрямую из hidden state» |
+| [LISA: Reasoning Segmentation via LLM](https://arxiv.org/pdf/2308.00692) (Lai et al., 2023) | Спецтокен (`<loc>` вместо `<SEG>`), embedding-as-output, LoRA на LLM | 
+
+---
 
 **Задача:** Собрать мультимодальную модель с нуля, которая умеет **описывать изображения** и **находить объекты по текстовому запросу** (grounding через bbox). Без готовых LLaVA-обёрток — свой датасет, forward pass, training loop и inference.
 
